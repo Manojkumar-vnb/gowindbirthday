@@ -1,0 +1,408 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Great+Vibes&family=Montserrat:wght@300;400;500&display=swap');
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Design system definition.
+ *
+ * The @theme inline block maps CSS custom properties to Tailwind utility
+ * classes (e.g. --color-primary -> bg-primary, text-primary).
+ *
+ * The :root and .dark blocks define the actual color values using oklch.
+ * All colors MUST use oklch format.
+ *
+ * To add a new semantic color:
+ * 1. Add the variable to :root (light value) and .dark (dark value)
+ * 2. Register it in @theme inline as --color-<name>: var(--<name>)
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --radius: 1rem;
+  --background: oklch(0.985 0.012 75);
+  --foreground: oklch(0.32 0.05 25);
+  --gold: oklch(0.78 0.13 80);
+  --blush: oklch(0.88 0.06 25);
+  --rose: oklch(0.72 0.13 20);
+  --cream: oklch(0.97 0.02 80);
+  --gradient-soft: linear-gradient(135deg, oklch(0.97 0.025 80), oklch(0.93 0.045 25));
+  --gradient-gold: linear-gradient(135deg, oklch(0.82 0.14 85), oklch(0.7 0.14 50));
+  --shadow-soft: 0 20px 60px -20px oklch(0.5 0.1 30 / 0.25);
+  --card: oklch(0.99 0.01 80);
+  --card-foreground: oklch(0.32 0.05 25);
+  --popover: oklch(0.99 0.01 80);
+  --popover-foreground: oklch(0.32 0.05 25);
+  --primary: oklch(0.55 0.16 25);
+  --primary-foreground: oklch(0.98 0.02 80);
+  --secondary: oklch(0.93 0.05 80);
+  --secondary-foreground: oklch(0.32 0.05 25);
+  --muted: oklch(0.94 0.03 70);
+  --muted-foreground: oklch(0.5 0.06 30);
+  --accent: oklch(0.78 0.13 80);
+  --accent-foreground: oklch(0.25 0.05 25);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.984 0.003 247.858);
+  --border: oklch(0.88 0.04 60);
+  --input: oklch(0.88 0.04 60);
+  --ring: oklch(0.78 0.13 80);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --sidebar: oklch(0.984 0.003 247.858);
+  --sidebar-foreground: oklch(0.129 0.042 264.695);
+  --sidebar-primary: oklch(0.208 0.042 265.755);
+  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-accent: oklch(0.968 0.007 247.896);
+  --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
+  --sidebar-border: oklch(0.929 0.013 255.508);
+  --sidebar-ring: oklch(0.704 0.04 256.788);
+}
+
+.dark {
+  --background: oklch(0.129 0.042 264.695);
+  --foreground: oklch(0.984 0.003 247.858);
+  --card: oklch(0.208 0.042 265.755);
+  --card-foreground: oklch(0.984 0.003 247.858);
+  --popover: oklch(0.208 0.042 265.755);
+  --popover-foreground: oklch(0.984 0.003 247.858);
+  --primary: oklch(0.929 0.013 255.508);
+  --primary-foreground: oklch(0.208 0.042 265.755);
+  --secondary: oklch(0.279 0.041 260.031);
+  --secondary-foreground: oklch(0.984 0.003 247.858);
+  --muted: oklch(0.279 0.041 260.031);
+  --muted-foreground: oklch(0.704 0.04 256.788);
+  --accent: oklch(0.279 0.041 260.031);
+  --accent-foreground: oklch(0.984 0.003 247.858);
+  --destructive: oklch(0.704 0.191 22.216);
+  --destructive-foreground: oklch(0.984 0.003 247.858);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.551 0.027 264.364);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.208 0.042 265.755);
+  --sidebar-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-accent: oklch(0.279 0.041 260.031);
+  --sidebar-accent-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.551 0.027 264.364);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background: var(--gradient-soft);
+    color: var(--color-foreground);
+    font-family: 'Montserrat', sans-serif;
+    min-height: 100vh;
+  }
+
+  .font-display {
+    font-family: 'Cormorant Garamond', serif;
+  }
+
+  .font-script {
+    font-family: 'Great Vibes', cursive;
+  }
+}
+
+/* ── Utility animations ── */
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-12px) rotate(2deg); }
+}
+
+@keyframes shimmer {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.1); }
+}
+
+.animate-float { animation: float 6s ease-in-out infinite; }
+.animate-shimmer { animation: shimmer 3s ease-in-out infinite; }
+
+
+/* ═══════════════════════════════════════════════════════
+   PREMIUM DOOR SPLASH
+   ═══════════════════════════════════════════════════════ */
+
+.door-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  perspective: 1800px;
+  overflow: hidden;
+  background: var(--gradient-soft);
+}
+
+/* ── Individual door panel (left / right) ── */
+.door {
+  position: relative;
+  width: 50%;
+  height: 100%;
+}
+
+.door--left {
+  transform-origin: left center;
+}
+
+.door--right {
+  transform-origin: right center;
+}
+
+.door-panel {
+  width: 100%;
+  height: 100%;
+  /* Rich warm wood-toned gradient */
+  background:
+    linear-gradient(
+      180deg,
+      #f5e6d0 0%,
+      #e8d4bc 15%,
+      #dcc5a8 40%,
+      #d4b896 60%,
+      #c9a882 80%,
+      #bfa078 100%
+    );
+  /* Subtle wood grain texture via repeating-gradient */
+  background-image:
+    linear-gradient(
+      180deg,
+      #f5e6d0 0%,
+      #e8d4bc 15%,
+      #dcc5a8 40%,
+      #d4b896 60%,
+      #c9a882 80%,
+      #bfa078 100%
+    ),
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 18px,
+      rgba(160, 120, 70, 0.04) 18px,
+      rgba(160, 120, 70, 0.04) 19px
+    );
+  box-shadow:
+    inset 0 0 80px rgba(0, 0, 0, 0.06),
+    inset 0 0 20px rgba(255, 255, 255, 0.15);
+}
+
+.door--left .door-panel {
+  border-right: 2px solid rgba(180, 150, 100, 0.5);
+  box-shadow:
+    inset -15px 0 30px rgba(0, 0, 0, 0.05),
+    inset 0 0 80px rgba(0, 0, 0, 0.04),
+    4px 0 20px rgba(0, 0, 0, 0.08);
+}
+
+.door--right .door-panel {
+  border-left: 2px solid rgba(180, 150, 100, 0.5);
+  box-shadow:
+    inset 15px 0 30px rgba(0, 0, 0, 0.05),
+    inset 0 0 80px rgba(0, 0, 0, 0.04),
+    -4px 0 20px rgba(0, 0, 0, 0.08);
+}
+
+/* ── Decorative frame inside each door ── */
+.door-frame {
+  position: absolute;
+  inset: 5% 10%;
+  border: 2px solid rgba(190, 160, 100, 0.4);
+  border-radius: 4px;
+}
+
+.door-inner-frame {
+  position: absolute;
+  inset: 8% 8%;
+  border: 1px solid rgba(190, 160, 100, 0.25);
+  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 0;
+}
+
+/* ── Ornamental icons ── */
+.door-ornament {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.door-ornament-icon {
+  width: 22px;
+  height: 22px;
+  color: rgba(180, 145, 80, 0.4);
+}
+
+.door-ornament-icon--sm {
+  width: 16px;
+  height: 16px;
+  fill: rgba(180, 145, 80, 0.15);
+}
+
+/* ── Door swing open animation ── */
+.door-overlay--open .door--left {
+  animation: doorSwingLeft 1.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.door-overlay--open .door--right {
+  animation: doorSwingRight 1.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes doorSwingLeft {
+  0% {
+    transform: rotateY(0deg);
+  }
+  100% {
+    transform: rotateY(-105deg);
+    opacity: 0;
+  }
+}
+
+@keyframes doorSwingRight {
+  0% {
+    transform: rotateY(0deg);
+  }
+  100% {
+    transform: rotateY(105deg);
+    opacity: 0;
+  }
+}
+
+/* ── Center seam (handles + label) ── */
+.door-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  animation: centerFadeIn 0.8s ease-out both;
+}
+
+@keyframes centerFadeIn {
+  from { opacity: 0; transform: translate(-50%, -50%) scale(0.9); }
+  to   { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+}
+
+/* ── Door handles ── */
+.door-handles {
+  display: flex;
+  gap: 28px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 1rem;
+  -webkit-tap-highlight-color: transparent;
+  animation: handlePulse 2.5s ease-in-out infinite;
+}
+
+.door-handles:active {
+  transform: scale(0.95);
+}
+
+.door-handle {
+  width: 14px;
+  height: 44px;
+  border-radius: 7px;
+  background: linear-gradient(180deg, #e8cf9e, #c8a060, #a8844a);
+  box-shadow:
+    0 4px 16px rgba(160, 120, 50, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4),
+    0 0 20px rgba(200, 170, 100, 0.15);
+  position: relative;
+}
+
+.door-handle::after {
+  content: '';
+  position: absolute;
+  top: 4px;
+  left: 3px;
+  width: 4px;
+  height: 12px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+@keyframes handlePulse {
+  0%, 100% {
+    filter: drop-shadow(0 0 0 transparent);
+  }
+  50% {
+    filter: drop-shadow(0 0 12px rgba(200, 170, 100, 0.4));
+  }
+}
+
+/* ── "Open the Door" label ── */
+.door-label {
+  font-size: 1.15rem;
+  font-style: italic;
+  letter-spacing: 0.12em;
+  color: rgba(140, 110, 60, 0.6);
+  animation: labelBreath 3s ease-in-out infinite;
+}
+
+@keyframes labelBreath {
+  0%, 100% { opacity: 0.45; }
+  50%      { opacity: 0.85; }
+}
