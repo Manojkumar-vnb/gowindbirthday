@@ -1,8 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef } from "react";
 import { MapPin, Calendar, Clock, Heart, Sparkles } from "lucide-react";
-import babyHero from "@/assets/baby-hero.jpeg";
-import familyPhoto from "@/assets/family-photo.jpeg";
+import babyHero from "../assets/baby-hero.jpeg";
+import familyPhoto from "../assets/family-photo.jpeg";
 
 export const Route = createFileRoute("/")({
   component: Invitation,
